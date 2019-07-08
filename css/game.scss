@@ -1,0 +1,139 @@
+@import 'variable';
+
+@mixin card {
+	width: 6.4rem;
+	height: 9rem;
+	border: 1px solid $baseBK;
+	border-radius: 0.5rem;
+	background-color: white;
+	font-size: 2.9rem;
+	margin: 1rem;
+}
+
+@mixin face-down {
+	color: transparent;
+	background-image: url(../resources/card.svg);
+	background-repeat: none;
+	background-position: center;
+	border: 1px solid $baseBK;
+}
+
+h2 {
+	margin: 2rem;
+}
+
+.point {
+	font-size: 2rem;
+	margin-left: 1.5rem;
+	text-align: bottom;
+	color: rgba($color: $baseBK, $alpha: 0.5);
+}
+
+.hands {
+	@include card;
+	color: $baseBK;	
+}
+
+.face-down {
+	@include face-down;
+}
+
+/* flipping card */
+.flip-card {
+	border: none;
+	background-color: transparent;
+}
+
+.card {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.card__face {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	backface-visibility: hidden;
+	color: $baseBK;
+	background-color: white;
+	border: 1px solid $baseBK;
+	border-radius: 0.5rem;
+}
+
+.card__face--back {
+	transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+	transform: rotateY(180deg);
+}
+
+
+#nextMove {
+	margin: 5vh 0;
+	padding: 0 5vw;
+	height: 20vh;
+	line-height: 20vh;
+}
+
+#deck {
+	@include card;
+	@include face-down;
+	
+	position: fixed;
+	top: 48%;
+	right: 5%;
+	transform: translateY(-50%);
+
+	cursor: pointer;
+}
+
+
+/* modal */
+.result-modal-wrapper, .restart-modal-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+	display: none;
+	animation-name: fade-in;
+	animation-duration: 1s;
+}
+
+.modal {
+  position: absolute;
+  top: 35vh;
+  left: 25vw;
+	background-color: #FFF7E8;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 50vw;
+  height: auto;
+	text-align: center;
+
+	#resultText {
+		color: $baseRed;
+	}
+}
+
+.fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba($color: $baseBK, $alpha: 0.5);
+  cursor: pointer;
+}
+
+
+/* animation */
+@keyframes fade-in {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+

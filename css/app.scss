@@ -1,0 +1,109 @@
+@import 'variable';
+
+// reset css
+:root {
+	background-color: #FFF7E8;
+	font-size: 62.5%;
+}
+  
+* {
+	box-sizing: border-box;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	margin: 0;
+	padding: 0;
+	color: $baseColor;
+}
+	
+h1 {
+  font-size: 5.4rem;
+  margin-bottom: 5rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
+
+h3 {
+	font-size: 3.8rem;
+}
+
+.mb-1 {
+	margin-bottom: 1rem;
+}
+
+.red {
+	color: $baseRed;
+}
+
+.bk {
+	color: $baseBK;
+}
+
+
+
+// Utility
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+  	justify-content: center;
+	align-items: center;
+	max-width: 80rem;
+ 	margin: 0 auto;
+  // padding: 2rem;
+}
+
+.flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+	display: flex;
+  flex-direction: row;
+}
+
+// button
+.btn {
+	width: 18rem;
+	text-align: center;
+	border: 0.1rem solid $baseColor;
+	font-size: 1.8rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	text-decoration: none;
+	background-color: white;
+
+	&:hover {
+		cursor: pointer;
+		color: $baseRed;
+		transform: translateY(-0.2rem);
+		box-shadow: 0.1rem 0.1rem 0.3rem rgba(255, 168, 0, 0.5);
+	}
+	
+	&[disabled] {
+		cursor: not-allowed;
+		background-color: rgba($color: #eee, $alpha: 0.5);
+	}
+
+	&[disabled]:hover {
+		color: $baseColor;
+		box-shadow: none;
+		transform: none;
+	}
+
+
+
+	&.sml {
+		width: 10rem;
+		margin: 1rem;
+	}
+}
+

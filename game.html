@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>21 - Black Jack</title>
+
+	<link rel="stylesheet" href="./css/app.css">
+	<link rel="stylesheet" href="./css/game.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<a class="close-modal" href="index.html">
+		<i class="fa fa-2x fa-times"></i>
+	</a>
+	<div class="container">
+		<div class="flex-center flex-column">
+			<div id="dealer" class="flex-center flex-column">
+				<h2>Dealer <span id="dealersPoint" class="point"> </span></h2>
+				<div id="dealersHand" class="flex-center flex-row"></div>
+			</div>
+			<div id="nextMove" class="">
+				<button id="hit-btn" class="btn sml" onclick="hit()">HIT ?</button>
+				<button id="stand-btn" class="btn sml" onclick="stand()">STAND ?</button>
+			</div>
+			<div id="player" class="flex-center flex-column">
+				<div id="playersHand" class="flex-center flex-row space"></div>
+				<h2>Player <span id="playersPoint" class="point"> </span></h2>
+			</div>
+		</div>
+	</div>
+
+	<div id="deck"></div>
+
+	<!-- modal -->
+	<div class="result-modal-wrapper" id="resultModal">
+		<div class="modal">
+			<div class="close-modal">
+				<i class="fa fa-2x fa-times"></i>
+			</div>
+			<h2 id="resultText"></h2>
+			<button class="btn sml" onclick="newGame()">Play Again</button>
+			<button class="btn sml" disabled>Score</button>
+		</div>
+	</div>
+	<div class="restart-modal-wrapper" id="restartModal">
+		<div class="modal">
+			<div class="close-modal">
+				<i class="fa fa-2x fa-times"></i>
+			</div>
+			<h2>New Game?</h2>
+			<button class="btn sml" onclick="newGame()">Yes</button>
+			<button class="btn sml close-modal">No</button>
+		</div>
+	</div>
+
+	<script src="./js/game.js"></script>
+</body>
+
+</html>

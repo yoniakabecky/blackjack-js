@@ -1,0 +1,156 @@
+h2 {
+  margin: 2rem;
+}
+
+.point {
+  font-size: 2rem;
+  margin-left: 1.5rem;
+  text-align: bottom;
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.hands {
+  width: 6.4rem;
+  height: 9rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 2.9rem;
+  margin: 1rem;
+  color: #333;
+}
+
+.face-down {
+  color: transparent;
+  background-image: url(../resources/card.svg);
+  background-repeat: none;
+  background-position: center;
+  border: 1px solid #333;
+}
+
+/* flipping card */
+.flip-card {
+  border: none;
+  background-color: transparent;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  color: #333;
+  background-color: white;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+}
+
+.card__face--back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#nextMove {
+  margin: 5vh 0;
+  padding: 0 5vw;
+  height: 20vh;
+  line-height: 20vh;
+}
+
+#deck {
+  width: 6.4rem;
+  height: 9rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 2.9rem;
+  margin: 1rem;
+  color: transparent;
+  background-image: url(../resources/card.svg);
+  background-repeat: none;
+  background-position: center;
+  border: 1px solid #333;
+  position: fixed;
+  top: 48%;
+  right: 5%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* modal */
+.result-modal-wrapper, .restart-modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+.modal {
+  position: absolute;
+  top: 35vh;
+  left: 25vw;
+  background-color: #FFF7E8;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 50vw;
+  height: auto;
+  text-align: center;
+}
+
+.modal #resultText {
+  color: #FF6347;
+}
+
+.fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(51, 51, 51, 0.5);
+  cursor: pointer;
+}
+
+/* animation */
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=game.css.map */
