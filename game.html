@@ -9,14 +9,20 @@
 
 	<link rel="stylesheet" href="./css/app.css">
 	<link rel="stylesheet" href="./css/game.css">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-	<a class="close-modal" href="index.html">
-		<i class="fa fa-2x fa-times"></i>
+	<a href="index.html">
+		<i class="fas fa-times fa-2x icons"></i>
 	</a>
+	<div id="reload">
+		<i class="fas fa-sync-alt fa-2x icons"></i>
+	</div>
+
 	<div class="container">
 		<div class="flex-center flex-column">
 			<div id="dealer" class="flex-center flex-column">
@@ -40,7 +46,7 @@
 	<div class="result-modal-wrapper" id="resultModal">
 		<div class="modal">
 			<div class="close-modal">
-				<i class="fa fa-2x fa-times"></i>
+				<i class="fas fa-times fa-2x icons"></i>
 			</div>
 			<h2 id="resultText"></h2>
 			<button class="btn sml" onclick="newGame()">Play Again</button>
@@ -50,7 +56,7 @@
 	<div class="restart-modal-wrapper" id="restartModal">
 		<div class="modal">
 			<div class="close-modal">
-				<i class="fa fa-2x fa-times"></i>
+				<i class="fas fa-times fa-2x icons"></i>
 			</div>
 			<h2>New Game?</h2>
 			<button class="btn sml" onclick="newGame()">Yes</button>

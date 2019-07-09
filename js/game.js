@@ -242,6 +242,9 @@ $(function () {
 	$('#deck').click(function () {
 		$('#restartModal').fadeIn();
 	});
+	$('#reload').click(function () {
+		$('#restartModal').fadeIn();
+	});
 	$('.close-modal').click(function () {
 		$('#resultModal').fadeOut();
 		$('#restartModal').fadeOut();

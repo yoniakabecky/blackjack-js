@@ -96,6 +96,11 @@ h2 {
   cursor: pointer;
 }
 
+#reload {
+  display: none;
+  cursor: pointer;
+}
+
 /* modal */
 .result-modal-wrapper, .restart-modal-wrapper {
   position: fixed;
@@ -128,12 +133,20 @@ h2 {
   color: #FF6347;
 }
 
-.fa-times {
+/* fontawesome */
+.icons {
   position: absolute;
   top: 1rem;
-  right: 1rem;
   color: rgba(51, 51, 51, 0.5);
   cursor: pointer;
+}
+
+.fa-times {
+  right: 1rem;
+}
+
+.fa-sync-alt {
+  left: 1rem;
 }
 
 /* animation */
@@ -151,6 +164,16 @@ h2 {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 480px) {
+  #reload {
+    display: block;
+  }
+  #deck {
+    display: none;
   }
 }
 /*# sourceMappingURL=game.css.map */
