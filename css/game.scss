@@ -22,6 +22,7 @@ h2 {
 	margin: 2rem;
 }
 
+
 .point {
 	font-size: 2rem;
 	margin-left: 1.5rem;
@@ -37,6 +38,7 @@ h2 {
 .face-down {
 	@include face-down;
 }
+
 
 /* flipping card */
 .flip-card {
@@ -115,7 +117,7 @@ h2 {
   position: absolute;
   top: 35vh;
   left: 25vw;
-	background-color: #FFF7E8;
+	background-color: $backGroundColor;
   padding: 2rem;
   border-radius: 1rem;
   width: 50vw;
@@ -144,6 +146,7 @@ h2 {
 	left: 1rem;	
 }
 
+
 /* animation */
 @keyframes fade-in {
 	0% {opacity: 0;}
@@ -151,7 +154,7 @@ h2 {
 }
 
 
-/* mobile */
+/* mobile responsive*/
 @media screen and (max-width: 480px) {
 	#reload {
 		display: block;
@@ -167,6 +170,4 @@ h2 {
 		width: 90vw;
 		
 	}
-	
-	
 }

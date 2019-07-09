@@ -167,7 +167,7 @@ h2 {
   }
 }
 
-/* mobile */
+/* mobile responsive*/
 @media screen and (max-width: 480px) {
   #reload {
     display: block;
