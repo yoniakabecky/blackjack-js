@@ -175,5 +175,10 @@ h2 {
   #deck {
     display: none;
   }
+  .modal {
+    top: 32vh;
+    left: 5vw;
+    width: 90vw;
+  }
 }
 /*# sourceMappingURL=game.css.map */
