@@ -23,9 +23,9 @@ class Card {
 
 
 class DeckOfCards {
-	allCards = [];
-
 	constructor() {
+		this.allCards = [];
+
 		for (let suit = 0; suit < 4; suit++) {
 			for (let value = 0; value < 13; value++) {
 				let card = new Card(suit, value);
