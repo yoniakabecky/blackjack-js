@@ -178,7 +178,7 @@ stand = () => {
 	let card = document.querySelector('.card');
 	card.classList.add('is-flipped');
 
-	setTimeout("checkPoints()", 1000);
+	setTimeout("checkPoints()", 800);
 };
 
 checkPoints = () => {
@@ -227,10 +227,23 @@ whoIsWinner = () => {
 
 
 function showResult(text) {
+	const windowSize = window.matchMedia("(max-width: 480px)");
+	const message = document.getElementById("message");
+
 	resultModal.style.display = "block";
 	resultText.innerHTML = text;
+
 	document.getElementById("hit-btn").style.display = "none";
 	document.getElementById("stand-btn").style.display = "none";
+
+	setTimeout(() => {
+		message.style.display = "block";
+		if (windowSize.matches) {
+			message.innerHTML = "click the reload btn to start new game";
+		} else {
+			message.innerHTML = "click the deck to start new game";
+		}
+	}, 1200);
 }
 
 $(function () {
@@ -252,5 +265,5 @@ $(function () {
 
 newGame = () => {
 	/* reload page */
-	setTimeout("location.reload()", 300);
+	setTimeout("location.reload()", 500);
 };

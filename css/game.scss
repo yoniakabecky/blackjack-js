@@ -81,6 +81,12 @@ h2 {
 	line-height: 20vh;
 }
 
+#message {
+	display: none;
+	font-size: 1.8rem;
+	text-align: center;
+}
+
 #deck {
 	@include card;
 	@include face-down;
