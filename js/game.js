@@ -121,7 +121,6 @@ player.addACard(cards.getACard());
 dealer.addACard(cards.getACard());
 
 dealersHand.innerHTML += `<div class="hands flex-center flex-column">${dealer.cards[0].suit + dealer.cards[0].value}</div>`;
-// dealersHand.innerHTML += `<div class="hands flex-center flex-column face-down">${dealer.cards[1].suit + dealer.cards[1].value}</div>`;
 let html = `
 	<div class="hands flip-card">
 		<div class="card">
@@ -144,10 +143,8 @@ playersPoint.innerHTML = `[${player.points}]`;
 /** check black jack or not */
 if (player.bj) {
 	if (dealer.bj) {
-		// setTimeout("showResult('Draw')", 1000);
 		showResult("Draw");
 	} else {
-		// setTimeout("showResult('Black Jack!!  YOU WIN')", 1000);
 		showResult("Black Jack!!  YOU WIN");
 	}
 }
@@ -160,7 +157,7 @@ hit = () => {
 	playersHand.innerHTML += `<div class="hands flex-center flex-column">${newCard.suit + newCard.value}</div>`;
 	playersPoint.innerHTML = `[${player.points}]`;
 
-	// if point is over 21 => game over
+	/* if point is over 21 => game over */
 	isOver21();
 };
 
@@ -178,7 +175,6 @@ function isOver21() {
 }
 
 stand = () => {
-	// dealersHand.childNodes[1].classList.remove("face-down");
 	let card = document.querySelector('.card');
 	card.classList.add('is-flipped');
 
@@ -186,10 +182,10 @@ stand = () => {
 };
 
 checkPoints = () => {
-	// dealer get cards until point gets over 17
+	/* dealer get cards until point gets over 17 */
 	dealersTurn();
 
-	// check who is winner
+	/* check who is winner */
 	if (!gameOver) {
 		whoIsWinner();
 	}
@@ -245,6 +241,7 @@ $(function () {
 	$('#reload').click(function () {
 		$('#restartModal').fadeIn();
 	});
+	/** when player click the close button */
 	$('.close-modal').click(function () {
 		$('#resultModal').fadeOut();
 		$('#restartModal').fadeOut();
@@ -254,6 +251,6 @@ $(function () {
 
 
 newGame = () => {
-	// reload page
+	/* reload page */
 	setTimeout("location.reload()", 300);
 };
