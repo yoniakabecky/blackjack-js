@@ -113,6 +113,10 @@ const resultModal = document.getElementById("resultModal");
 const restartModal = document.getElementById("restartModal");
 const resultText = document.getElementById("resultText");
 
+let numOfWins = JSON.parse(localStorage.getItem("wins"));
+let numOfLoses = JSON.parse(localStorage.getItem("loses"));
+let numOfDraws = JSON.parse(localStorage.getItem("draws"));
+console.log(numOfWins + " " + numOfLoses + " " + numOfDraws);
 
 player.addACard(cards.getACard());
 dealer.addACard(cards.getACard());
@@ -143,8 +147,12 @@ playersPoint.innerHTML = `[${player.values}]`;
 /** check black jack or not */
 if (player.bj) {
 	if (dealer.bj) {
+		numOfDraws++;
+		localStorage.setItem("draws", numOfDraws);
 		showResult("Draw");
 	} else {
+		numOfWins++;
+		localStorage.setItem("wins", numOfWins);
 		showResult("Black Jack!!  YOU WIN");
 	}
 }
@@ -169,6 +177,8 @@ function isOver21() {
 			playersPoint.innerHTML = `[${player.values}]`;
 		} else {
 			gameOver = true;
+			numOfLoses++;
+			localStorage.setItem("loses", numOfLoses);
 			showResult("YOU LOSE ;_;");
 		}
 	}
@@ -208,6 +218,8 @@ dealersTurn = () => {
 			dealersTurn();
 		} else {
 			gameOver = true;
+			numOfWins++;
+			localStorage.setItem("wins", numOfWins);
 			showResult("YOU WIN !!!");
 		}
 	}
@@ -218,8 +230,12 @@ whoIsWinner = () => {
 	let text = "";
 
 	if (dealer.values < player.values) {
+		numOfWins++;
+		localStorage.setItem("wins", numOfWins);
 		text = "YOU WIN !!!!!";
 	} else {
+		numOfLoses++;
+		localStorage.setItem("loses", numOfLoses);
 		text = "YOU LOSE ...";
 	}
 	showResult(text);

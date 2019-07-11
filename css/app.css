@@ -152,4 +152,14 @@ h4 {
   color: #FF6347;
   font-family: "Courier New", Courier, monospace;
 }
+
+#scores {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.number {
+  font-size: 4rem;
+  padding: 0 1rem;
+}
 /*# sourceMappingURL=app.css.map */
