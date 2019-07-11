@@ -1,23 +1,23 @@
 const suits = ["\u2660", "\u2665", "\u2666", "\u2663"];
-const values = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+const numbers = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
 
 class Card {
-	constructor(suit, value) {
+	constructor(suit, number) {
 		this.suit = suits[suit];
-		this.value = values[value];
-		this.point = this.getPoint(value);
+		this.number = numbers[number];
+		this.value = this.getPoint(number);
 	}
 
-	getPoint(value) {
-		let point = 0;
-		if (value === 0) {
-			point = 11;
-		} else if (value >= 10) {
-			point = 10;
+	getPoint(number) {
+		let value = 0;
+		if (number === 0) {
+			value = 11;
+		} else if (number >= 10) {
+			value = 10;
 		} else {
-			point = value + 1;
+			value = number + 1;
 		}
-		return point;
+		return value;
 	}
 }
 
@@ -27,8 +27,8 @@ class DeckOfCards {
 		this.allCards = [];
 
 		for (let suit = 0; suit < 4; suit++) {
-			for (let value = 0; value < 13; value++) {
-				let card = new Card(suit, value);
+			for (let number = 0; number < 13; number++) {
+				let card = new Card(suit, number);
 				this.allCards.push(card);
 			}
 		}
@@ -51,7 +51,7 @@ class DeckOfCards {
 class Person {
 	constructor() {
 		this.cards = [];
-		this.points = 0;
+		this.values = 0;
 		this.numOfCards = 0;
 		this.aces = 0;
 		this.faces = 0;
@@ -61,36 +61,36 @@ class Person {
 	addACard(card) {
 		this.cards.push(card);
 		this.numOfCards += 1;
-		this.points += this.addPoint(card);
-		this.aces += this.haveAce(card.value);
-		this.faces += this.haveFace(card.point);
+		this.values += this.addPoint(card);
+		this.aces += this.haveAce(card.number);
+		this.faces += this.haveFace(card.value);
 		this.bj = this.isBJ();
 	}
 
 	addPoint(card) {
-		if (card.value === "A" && this.aces > 1) {
+		if (card.number === "A" && this.aces > 1) {
 			return 1;
 		} else {
-			return card.point;
+			return card.value;
 		}
 	}
 
-	haveAce(value) {
-		if (value === "A") {
+	haveAce(number) {
+		if (number === "A") {
 			return 1;
 		}
 		return 0;
 	}
 
-	haveFace(point) {
-		if (point === 10) {
+	haveFace(value) {
+		if (value === 10) {
 			return 1;
 		}
 		return 0;
 	}
 
 	isBJ() {
-		if (this.points === 21)
+		if (this.value === 21)
 			return this.aces === 1 && this.faces === 1;
 	}
 }
@@ -120,24 +120,24 @@ dealer.addACard(cards.getACard());
 player.addACard(cards.getACard());
 dealer.addACard(cards.getACard());
 
-dealersHand.innerHTML += `<div class="hands flex-center flex-column">${dealer.cards[0].suit + dealer.cards[0].value}</div>`;
+dealersHand.innerHTML += `<div class="hands flex-center flex-column">${dealer.cards[0].suit + dealer.cards[0].number}</div>`;
 let html = `
 	<div class="hands flip-card">
 		<div class="card">
 			<div class="card__face face-down"></div>
 			<div class="card__face card__face--back flex-center flex-column">
-				${dealer.cards[1].suit + dealer.cards[1].value}
+				${dealer.cards[1].suit + dealer.cards[1].number}
 			</div>
 		</div>
 	</div>
 `;
 dealersHand.innerHTML += html;
-dealersPoint.innerHTML = `[${dealer.cards[0].point}]`;
+dealersPoint.innerHTML = `[${dealer.cards[0].value}]`;
 
 
-playersHand.innerHTML += `<div class="hands flex-center flex-column">${player.cards[0].suit + player.cards[0].value}</div>`;
-playersHand.innerHTML += `<div class="hands flex-center flex-column">${player.cards[1].suit + player.cards[1].value}</div>`;
-playersPoint.innerHTML = `[${player.points}]`;
+playersHand.innerHTML += `<div class="hands flex-center flex-column">${player.cards[0].suit + player.cards[0].number}</div>`;
+playersHand.innerHTML += `<div class="hands flex-center flex-column">${player.cards[1].suit + player.cards[1].number}</div>`;
+playersPoint.innerHTML = `[${player.values}]`;
 
 
 /** check black jack or not */
@@ -154,19 +154,19 @@ hit = () => {
 	let newCard = cards.getACard();
 	player.addACard(newCard);
 
-	playersHand.innerHTML += `<div class="hands flex-center flex-column">${newCard.suit + newCard.value}</div>`;
-	playersPoint.innerHTML = `[${player.points}]`;
+	playersHand.innerHTML += `<div class="hands flex-center flex-column">${newCard.suit + newCard.number}</div>`;
+	playersPoint.innerHTML = `[${player.values}]`;
 
 	/* if point is over 21 => game over */
 	isOver21();
 };
 
 function isOver21() {
-	if (player.points > 21) {
+	if (player.values > 21) {
 		if (player.aces !== 0) {
-			player.points -= 10;
+			player.values -= 10;
 			player.aces -= 1;
-			playersPoint.innerHTML = `[${player.points}]`;
+			playersPoint.innerHTML = `[${player.values}]`;
 		} else {
 			gameOver = true;
 			showResult("YOU LOSE ;_;");
@@ -193,18 +193,18 @@ checkPoints = () => {
 
 
 dealersTurn = () => {
-	while (dealer.points < 17) {
+	while (dealer.values < 17) {
 		let newCard = cards.getACard();
 		dealer.addACard(newCard);
-		dealersHand.innerHTML += `<div class="hands flex-center flex-column">${newCard.suit + newCard.value}</div>`;
+		dealersHand.innerHTML += `<div class="hands flex-center flex-column">${newCard.suit + newCard.number}</div>`;
 	}
-	dealersPoint.innerHTML = `[${dealer.points}]`;
+	dealersPoint.innerHTML = `[${dealer.values}]`;
 
-	if (dealer.points > 21) {
+	if (dealer.values > 21) {
 		if (dealer.aces !== 0) {
-			dealer.points -= 10;
+			dealer.values -= 10;
 			dealer.aces -= 1;
-			dealersPoint.innerHTML = `[${dealer.points}]`;
+			dealersPoint.innerHTML = `[${dealer.values}]`;
 			dealersTurn();
 		} else {
 			gameOver = true;
@@ -217,7 +217,7 @@ dealersTurn = () => {
 whoIsWinner = () => {
 	let text = "";
 
-	if (dealer.points < player.points) {
+	if (dealer.values < player.values) {
 		text = "YOU WIN !!!!!";
 	} else {
 		text = "YOU LOSE ...";
