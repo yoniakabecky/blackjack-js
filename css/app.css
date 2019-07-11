@@ -145,11 +145,11 @@ h4 {
   color: #333;
   font-size: 1.5rem;
   margin: 0.5rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #howToPlay ul strong {
   color: #FF6347;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
 }
 /*# sourceMappingURL=app.css.map */
