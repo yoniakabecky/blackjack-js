@@ -2,4 +2,4 @@
 
 for final project of Javascript course
 
-[Page Link](URL "https://yoniakabecky.github.io/blackjack-js/")
+[Github.io Link](URL "https://yoniakabecky.github.io/blackjack-js/")
