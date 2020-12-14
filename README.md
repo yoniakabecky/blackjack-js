@@ -1,5 +1,8 @@
-# Simple Black Jack Game App
+# Black Jack Game App 🃏
 
-for final project of Javascript course
+A simple Black Jack Game for final project of Javascript course  
+![mock image](resources/mock.jpg)
+
+## Demo 📱
 
 [Github.io Link](https://yoniakabecky.github.io/blackjack-js/)
